@@ -16,7 +16,7 @@ The bot will figure out what time you're asking for, then show you 2 things: The
 - !date tomorrow
 - !date march 27th
 - !date 5pm PST sunday
-- !date me __just kidding__
+- !date me ~~just kidding~~
 
 It also supports a few of the ending codes, to show Relative, Time-Only, or other output styles: R, D, T, F
 
