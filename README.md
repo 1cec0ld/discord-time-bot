@@ -41,7 +41,9 @@ It should only ask for permission to read and send messages.
 ## Questions? Comments? Issues? Suggestions?
 
 I set up a [Discord server](https://discord.gg/aWCXeJC9) specifically for it, contact me there, or leave an Issue on github!
-**Known issue:** as of November 5, 2021 the bot will use EST as the default time zone, since the host computer is there. If you use a specific time, such as 12pm or 1500 or 1:00 then please specify the time zone you are in, or the one you want to use.
+
+##### Known issues: 
+- As of November 5, 2021 the bot will use EST as the default time zone, since the host computer is there. If you use a specific time, such as 12pm or 1500 or 1:00 then please specify the time zone you are in, or the one you want to use.
 
 
 
