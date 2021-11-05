@@ -2,13 +2,6 @@ const dateCommand = require('./date/dateCommand');
 const stringUtils = require('./utils/stringUtils');
 const validCommands = {};
 
-validCommands['!leave'] = (obj) => {
-  const msg = obj.msg;
-  msg.reply('leaving...').then(() => {
-  obj.bot.destroy();
-  });
-};
-
 validCommands['!ping'] = (obj) => {
   //to-do: respond with actual delay, see: obj.msg.timestamp
   const msg = obj.msg;
