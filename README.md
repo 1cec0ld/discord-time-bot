@@ -35,7 +35,7 @@ It should only ask for permission to read and send messages.
 
 - Smarter understanding of the Flags. R,D,T,F are the only ones the bot knows, but others exist
 - Better help message
-- Clean up after itself (delete the message & response after a short delay)
+- ~~Clean up after itself (delete the message & response after a short delay)~~ Nov 09 2021
 - Figure out timezones
 
 ## Questions? Comments? Issues? Suggestions?
