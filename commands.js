@@ -11,7 +11,15 @@ validCommands['!ping'] = (obj) => {
 validCommands['!date'] = (obj) => {
   const msg = obj.msg;
   const dateMsg = dateCommand.processDate(msg);
-  msg.reply(dateMsg).catch((error) => {
+  msg.reply(dateMsg)
+  .then(sentMsg => {
+    const timeout = 15000; //15 seconds
+    setTimeout(() => {
+      msg.delete();
+      sentMsg.delete();
+    }, timeout);
+  })
+  .catch((error) => {
     console.error(error);
     msg.channel.send("Something went wrong... Please contact my creator?");
   });
