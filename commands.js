@@ -27,9 +27,11 @@ validCommands['!date'] = (obj) => {
 
 validCommands['!help'] = (obj) => {
   const msg = obj.msg;
-  msg.reply(stringUtils.mls`!help - Displays this message
+  msg.reply(stringUtils.mls`\`\`\`!help - Displays this message
                             !ping - Confirms that I'm online
-                            !date - Parse the given date into dynamic string format`);
+                            !date - Parse the given date into dynamic string format
+                            
+                            The message will be deleted after 15 seconds.\`\`\``);
 };
 
 module.exports = validCommands;
