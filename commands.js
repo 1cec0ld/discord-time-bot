@@ -30,8 +30,15 @@ validCommands['!help'] = (obj) => {
   msg.reply(stringUtils.mls`\`\`\`!help - Displays this message
                             !ping - Confirms that I'm online
                             !date - Parse the given date into dynamic string format
+                            - The message will be deleted after 15 seconds.\`\`\`
                             
-                            The message will be deleted after 15 seconds.\`\`\``);
+                            For more information, see: [Click me](www.stackoverflow.com)`);
 };
+
+validCommands['!uptime'] = (obj) => {
+  const msg = obj.msg;
+  const uptime = obj.bot.uptime;
+  msg.reply(`I've been up for `)
+}
 
 module.exports = validCommands;
