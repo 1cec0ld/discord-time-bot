@@ -3,7 +3,7 @@
 ## What is it?
 
 Discord released a feature for [Dynamic Timestamps](https://www.reddit.com/r/discordapp/comments/ofsm4e/dynamic_timestamps/) but it requires some technical formatting, and looking up a unix timestamp.
-This bot cuts out the middleman with a single command: !date
+This bot cuts out the middleman with a single command: !date (or /date, if you want a little privacy)
 
 ## How does it work?
 
@@ -16,25 +16,24 @@ The bot will figure out what time you're asking for, then show you 2 things: The
 - !date tomorrow
 - !date march 27th
 - !date 5pm PST sunday
-- !date me ~~just kidding~~
 
-It also supports a few of the ending codes, to show Relative, Time-Only, or other output styles: R, D, T, F
+It also supports a few of the ending codes, to show Relative, Time-Only, or other output styles: R, D, T, F & their lowercase versions
 
 - !date 5pm PST -R
-- !date march 27th -D
+- !date march 27th -d
 - !date midnight -T
-- !date now -F *this is the default, you don't need the -F*
+- !date now -f 
 
 ## How do I get it to my server?
 
-The invite URL for the bot is [here, for now](https://discord.com/api/oauth2/authorize?client_id=906016769783779470&permissions=10240&scope=bot).
+The invite URL for the bot is [here, for now](https://discord.com/api/oauth2/authorize?client_id=866725487588671498&permissions=2147493952&scope=bot%20applications.commands).
 
-It should only ask for permission to read and send messages.
+It should ask for permission to read and send messages, and confirm access to slash-commands.
 
 ## What's next?
 
-- Smarter understanding of the Flags. R,D,T,F are the only ones the bot knows, but others exist
-- Better help message
+- ~~Smarter understanding of the Flags. R,D,T,F are the only ones the bot knows, but others exist~~
+- ~~Better help message~~
 - ~~Clean up after itself (delete the message & response after a short delay)~~ Nov 09 2021
 - Figure out timezones
 
