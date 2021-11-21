@@ -1,6 +1,7 @@
-import {Client, Intents} from 'discord.js';
+import { Client, Intents } from 'discord.js';
 const bot = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [Intents.FLAGS.GUILDS,
+  Intents.FLAGS.GUILD_MESSAGES],
 });
 import dotenv from 'dotenv';
 dotenv.config();
@@ -14,6 +15,7 @@ bot.login(TOKEN);
 initialize();
 
 function initialize() {
+
   bot.on('ready', () => {
     console.info(`Logged in as ${bot.user.tag}!`);
     CommandProvider.init(new SlashCommandRegistry(bot));
@@ -21,8 +23,7 @@ function initialize() {
 
   bot.on('messageCreate', (msg) => {
     if (msg.author.bot) return;
-    // to-do add prefix to env file, reference process.env.PREFIX
-    if (!msg.content.startsWith('!')) return;
+    if(!msg.content.startsWith('!')) return; //to-do add prefix to env file, reference process.env.PREFIX
     const words = msg.content.substring(1).split(' ');
     const command = CommandProvider.getCommand(words[0]);
     if (!command) return;
@@ -30,15 +31,9 @@ function initialize() {
   });
 
   bot.on('interactionCreate', (interaction) => {
-    if (!interaction.isCommand()) return;
+    if(!interaction.isCommand()) return;
     const command = CommandProvider.getCommand(interaction.commandName);
     if (!command) return;
-    command.execute(
-      bot,
-      interaction,
-      interaction.commandName +
-        ' ' +
-        interaction.options.getString('parameters'),
-    );
+    command.execute(bot, interaction, interaction.commandName + " " + interaction.options.getString('parameters'));
   });
 }
