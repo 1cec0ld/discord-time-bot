@@ -11,12 +11,6 @@ export default class SlashCommandRegistry{
     
     registerAllSlashCommands(commands_object) {
         const commands_output = [];
-        /*for (let command_label in commands_object) {
-            commands_output.push({ name: command_label,
-                description: "The response to this won't be visible to others",
-            options: { type: 3, name: "parameters", description: "The parameters to the command"}});
-        };*/
-
         for (let command_label in commands_object) {
             commands_output.push(
                     new SlashCommandBuilder().setName(command_label)
