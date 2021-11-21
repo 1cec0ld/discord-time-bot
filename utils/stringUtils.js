@@ -5,7 +5,7 @@
  * @param  {...string} values 
  * @return {string} The input template string, merging parameters, preserving newlines.
  */
-function mls(strings, ...values) {
+export function mls(strings, ...values) {
     // Merge the strings with the
     // substitution vars first.
     let output = '';
@@ -30,7 +30,7 @@ function mls(strings, ...values) {
  * @param  {...string} values 
  * @return {string} The input template string, merging parameters, replacing any newlines with spaces.
  */
-function sls(strings, ...values) {
+export function sls(strings, ...values) {
     let output = '';
     for (let i = 0; i < values.length; i++) {
         output += strings[i] + values[i];
@@ -44,5 +44,3 @@ function sls(strings, ...values) {
         .join(' ') 
         .trim(); 
 }
-
-module.exports = {mls: mls, sls: sls};

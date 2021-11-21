@@ -1,4 +1,6 @@
 {
+  "type": "module",
+  
   "dependencies": {
     "chrono-node": "^2.3.2",
     "discord.js": "^13.3.1",
