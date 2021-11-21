@@ -8,17 +8,17 @@ dotenv.config();
 const TOKEN = process.env.TOKEN;
 
 import CommandProvider from './commands/CommandProvider.js';
+import SlashCommandRegistry from './commands/SlashCommandRegistry.js';
 
 bot.login(TOKEN);
 
 initialize();
 
 function initialize() {
-  
-  CommandProvider.init();
 
   bot.on('ready', () => {
     console.info(`Logged in as ${bot.user.tag}!`);
+    CommandProvider.init(new SlashCommandRegistry(bot));
   });
 
   bot.on('messageCreate', (msg) => {
@@ -27,14 +27,13 @@ function initialize() {
     const words = msg.content.substring(1).split(' ');
     const command = CommandProvider.getCommand(words[0]);
     if (!command) return;
-    command.execute(bot, msg);
+    command.execute(bot, msg, msg.content);
   });
 
   bot.on('interactionCreate', (interaction) => {
     if(!interaction.isCommand()) return;
     const command = CommandProvider.getCommand(interaction.commandName);
     if (!command) return;
-    //command.execute(bot, interaction);
-    interaction.channel.send(JSON.stringif(interaction));
+    command.execute(bot, interaction, interaction.commandName + " " + interaction.options.getString('parameters'));
   });
 }

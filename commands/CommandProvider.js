@@ -5,10 +5,15 @@ import DateCommand from './date/dateCommand.js';
 export default class CommandProvider {
     static commands = {};
 
-    static init() {
+    constructor(){
+    }
+
+    static init(slashCommandRegistry) {
         new HelpCommand();
         new PingCommand();
         new DateCommand();
+
+        slashCommandRegistry.registerAllSlashCommands(this.commands);
     }
 
     static registerCommand(command_label, command_usage="N/A", 
@@ -25,6 +30,10 @@ export default class CommandProvider {
         const input = command_label.toLowerCase();
         if(!(this.commands.hasOwnProperty(input)))return null;
         return this.commands[input];
+    }
+
+    static get commands() {
+        return this.commands;
     }
 }
 

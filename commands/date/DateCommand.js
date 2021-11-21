@@ -6,26 +6,27 @@ class DateCommand extends Command {
     static FLAGS = ['-R', '-D', '-T', '-F'];
 
     constructor() {
-        super("date", 'Responds with the given date and/or time in [Dynamic Timestamp](https://www.reddit.com/r/discordapp/comments/ofsm4e/dynamic_timestamps/) format', (client, message) => this.printDate(message));
+        super("date", 'Responds with the given date and/or time in [Dynamic Timestamp](https://www.reddit.com/r/discordapp/comments/ofsm4e/dynamic_timestamps/) format', (client, trigger, content) => this.printDate(trigger, content));
     }
 
-    printDate(message) {
-        message.reply({ephemeral: true, allowedMentions: {repliedUser: false}, content: processDate(message)})
+    printDate(trigger, message) {
+        trigger.reply({ephemeral: true, allowedMentions: {repliedUser: false}, content: processDate(message)})
         .then(sentMsg => {
+            if('isCommand' in trigger)return; // done by Interaction, no need to clean up
             setTimeout(() => {
-                message.delete().catch(anyError => {console.error(`Tried to delete the sender's prompt after someone else already did`)});
+                trigger.delete().catch(anyError => {console.error(`Tried to delete the sender's prompt after someone else already did`)});
                 sentMsg.delete().catch(anyError => {console.error(`Tried to delete my response after someone else already did`)});
             }, 15000);
         })
         .catch(anyError => {
             console.error(anyError);
-            message.channel.send("Something broke. Please contact my creator.");
+            trigger.channel.send("Something broke. Please contact my creator.");
         });
     }
 }
 
 function processDate(message) {
-    const words = message.content.split(' ');
+    const words = message.split(' ');
     if (words.length == 1) {
         return (mls`Usage:
                 \`!date (your date/time here)\`
