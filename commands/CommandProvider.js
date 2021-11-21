@@ -1,6 +1,6 @@
-import HelpCommand from './help/helpCommand.js';
-import PingCommand from './ping/pingCommand.js';
-import DateCommand from './date/dateCommand.js';
+import HelpCommand from './help/HelpCommand.js';
+import PingCommand from './ping/PingCommand.js';
+import DateCommand from './date/DateCommand.js';
 
 export default class CommandProvider {
     static commands = {};
