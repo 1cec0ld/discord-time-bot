@@ -7,10 +7,11 @@ This bot cuts out the middleman with a single command: !date (or /date, if you w
 
 ## How does it work?
 
-Once the bot is on the server, in the channel you're looking at, say `!date (date and/or time)` 
+Once the bot is on the server, in the channel you're looking at, say `!date (date and/or time)`
 The bot will figure out what time you're asking for, then show you 2 things: The dynamic timestamp (it should show up in your local time zone) and then a small snippet of the formatting, which you can copy and paste anywhere into discord, to show that exact same response.
 
 ## For example?
+
 - !date today
 - !date next week
 - !date tomorrow
@@ -22,7 +23,7 @@ It also supports a few of the ending codes, to show Relative, Time-Only, or othe
 - !date 5pm PST -R
 - !date march 27th -d
 - !date midnight -T
-- !date now -f 
+- !date now -f
 
 ## How do I get it to my server?
 
@@ -41,10 +42,9 @@ It should ask for permission to read and send messages, and confirm access to sl
 
 I set up a [Discord server](https://discord.gg/aWCXeJC9) specifically for it, contact me there, or leave an Issue on github!
 
-##### Known issues: 
+##### Known issues:
+
 - As of November 5, 2021 the bot will use EST as the default time zone, since the host computer is there. If you use a specific time, such as 12pm or 1500 or 1:00 then please specify the time zone you are in, or the one you want to use.
-
-
 
 # If you wish to run it on your own host:
 
@@ -60,8 +60,8 @@ Link to article on SitePoint, used for initial setup: [https://www.sitepoint.com
 1. Clone repo
 2. Add the Discord token in a `.env` file next to index.js: `TOKEN=YourBotTokenHere-NoQuotationMarksNeeded`
 3. Navigate to the folder in a command line, and run `npm install`
-3. Navigate to the folder and run `node index.js` in a command line
-4. Interact with your Discord bot!
+4. Navigate to the folder and run `node index.js` in a command line
+5. Interact with your Discord bot!
 
 ## License
 
