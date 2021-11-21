@@ -11,12 +11,6 @@ export default class SlashCommandRegistry{
     
     registerAllSlashCommands(commands_object) {
         const commands_output = [];
-        /*for (let command_label in commands_object) {
-            commands_output.push({ name: command_label,
-                description: "The response to this won't be visible to others",
-            options: { type: 3, name: "parameters", description: "The parameters to the command"}});
-        };*/
-
         for (let command_label in commands_object) {
             commands_output.push(
                     new SlashCommandBuilder().setName(command_label)
@@ -30,10 +24,12 @@ export default class SlashCommandRegistry{
         (async () => {
             try {
                 if(process.env.DEV == 'true'){
+                    console.log(`Registering guild slash commands`);
                     const GUILD_ID = process.env.GUILD_ID;
                     await rest.put(Routes.applicationGuildCommands(this.client.user.id, process.env.GUILD_ID),
                     {body: commands_output});
                 } else {
+                    console.log(`Registering global slash commands`);
                     await rest.put(Routes.applicationCommands(this.client.user.id),
                     {body: commands_output});
                 }
