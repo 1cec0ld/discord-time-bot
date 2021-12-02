@@ -2,7 +2,7 @@ import Command from '../Command.js';
 import { mls } from '../../utils/stringUtils.js';
 import * as chrono from 'chrono-node';
 
-class DateCommand extends Command {
+export default class DateCommand extends Command {
     static FLAGS = ['-R', '-D', '-T', '-F'];
 
     constructor() {
@@ -67,4 +67,3 @@ function utcParse(inputString) {
     if (step1 == null) return null;
     return Math.floor(step1.getTime() / 1000);
 }
-export default DateCommand;

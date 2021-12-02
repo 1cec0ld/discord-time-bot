@@ -26,7 +26,7 @@ It also supports a few of the ending codes, to show Relative, Time-Only, or othe
 
 ## How do I get it to my server?
 
-The invite URL for the bot is [here, for now](https://discord.com/api/oauth2/authorize?client_id=866725487588671498&permissions=2147493952&scope=bot%20applications.commands).
+The invite URL for the bot is [here, for now](https://discord.com/api/oauth2/authorize?client_id=906016769783779470&permissions=10240&scope=bot%20applications.commands).
 
 It should ask for permission to read and send messages, and confirm access to slash-commands.
 

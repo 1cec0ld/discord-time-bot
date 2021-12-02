@@ -1,7 +1,7 @@
 import Command from '../Command.js';
 import { MessageEmbed } from 'discord.js';
 import CommandProvider from '../CommandProvider.js';
-class HelpCommand extends Command {
+export default class HelpCommand extends Command {
 
     constructor() {
         super("help", "Responds with this message", (client, trigger, content) => this.execute(trigger));
@@ -30,5 +30,3 @@ class HelpCommand extends Command {
         });
     }
 }
-
-export default HelpCommand;

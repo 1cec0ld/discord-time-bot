@@ -1,8 +1,6 @@
 import CommandProvider from './CommandProvider.js';
-class Command {
+export default class Command {
     constructor(name, usage, execute) {
         CommandProvider.registerCommand(name, usage, execute);
     }
 }
-
-export default Command;
